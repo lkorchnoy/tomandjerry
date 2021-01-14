@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-import Tom from './Tom';
-import Jerry from './Jerry';
+import Tom from './tom.js';
+import Jerry from './jerry.js';
 
 
 class Routing extends Component {
