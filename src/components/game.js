@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 class Game extends Component {
 state = {
-        jerry: {
-            x: 50,
-            y: this.refs.canvas.height/2,
-            radius: 20
-        }
+    gravity: 0.8,
+    jerry: {
+      x: 50,
+      y: 100,
+      velocity: 0,
+      radius: 20
     }
 
 
@@ -19,6 +20,21 @@ draw = () => {
         ctx.stroke();
     }
     update = () => {
+        let newV = (this.state.jerry.velocity + this.state.gravity) * 0.9
+    this.setState({
+      jerry: {
+        x: 50,
+        y: Math.max(
+          Math.min(
+            this.state.jerry.y + newV,
+            this.refs.canvas.height - this.state.jerry.radius
+          ),
+          0
+        ),
+        velocity: newV,
+        radius: 20
+      }
+    });
     }
     componentDidMount() {
         setInterval(() => {
