@@ -18,8 +18,13 @@ draw = () => {
         ctx.fill();
         ctx.stroke();
     }
+    update = () => {
+    }
     componentDidMount() {
-        this.draw()
+        setInterval(() => {
+        this.update();
+        this.draw();
+    }, 1000 / 60);
     }
 
 
